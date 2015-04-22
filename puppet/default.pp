@@ -7,7 +7,7 @@ if versioncmp($::puppetversion,'3.6.1') >= 0 {
 
 class pkgsextra{
     #por estructura paso estos paquetes a que se instalen por puppet y no por bash
-    package { ['curl', 'ant', 'tar','java-1.7.0-openjdk-devel','java-1.7.0-openjdk','nano', 'gcc', 'gcc-c++','autoconf','automake'] :
+    package { ['curl', 'git', 'ant', 'tar','java-1.7.0-openjdk-devel','java-1.7.0-openjdk','nano', 'gcc', 'gcc-c++','autoconf','automake'] :
         ensure  => present,
     }
 }
