@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
 
-    config.vm.box = "puphpet/centos65-x64"
+    config.vm.box = "chef/centos-6.5-i386"
 
     config.vm.box_check_update = false
 
@@ -11,6 +11,9 @@ Vagrant.configure(2) do |config|
         vb.gui = false
         # Customize the amount of memory on the VM:
         vb.memory = "256"
+    end
+    config.vm.provision :shell do |shell|
+        shell.path = "vagrant/setup.sh"
     end
     config.vm.provision "puppet" do |puppet|
         puppet.manifests_path = "puppet"
