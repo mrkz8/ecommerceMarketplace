@@ -1,5 +1,9 @@
 # Plataforma de desarrollo Ecommerce
-Plataforma de ecommerce con Marketplace, powered with ZF2 - Entity - HTML5 - CSS3 - Angular
+Plataforma de ecommerce con Marketplace, powered with ZF2 - Entity - HTML5 - CSS3 - Angular.
+
+Asi mismo esta plataforma es de software libre.
+
+Be FREE!!
 
 # Desarrollo Local
 
@@ -189,9 +193,15 @@ Cualquier otra duda o problema, pueden contactarme para revisarlo y corregirlo.
 
 # Author
 
-El presente repositorio es authoria de
+El presente repositorio son de:
 
         Ricardo Jesus Ruiz Cruz <ricardojesus.ruizcruz@gmail.com>
+        Eduardo Cruz <eduardo.cruz.a85@gmail.com>
 
 Si necesitas implementarlo, alguna duda o deseas apoyar con el repositorio no dudes en
-contactarme.
+contactarnos.
+
+        marketplace.yaguer.com.mx
+        jenkins.yaguer.com.mx
+            user:market
+            pass:market
