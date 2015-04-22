@@ -159,7 +159,7 @@ class ecommerce {
     require mysqlSrv
     require createdb
     nginx::resource::vhost { 'www.ecommerce.local.com':
-        www_root => '/www/www.www.ecommerce.local.com/public',
+        www_root => '/www/www.ecommerce.local.com/public',
         ssl => true,
         ssl_cert             => '/vagrant/puppet/certs/server.crt',
         ssl_key              => '/vagrant/puppet/certs/server.key',
