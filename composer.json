@@ -10,13 +10,14 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "2.3.*",
-        "doctrine/common" : ">=2.1",
-        "bjyoungblood/bjy-profiler": "dev-master",
-        "doctrine/doctrine-orm-module" : "0.*",
-        "zendframework/zend-developer-tools" : "dev-master"
+        "doctrine/common" : "2.*",
+        "doctrine/doctrine-orm-module" : "0.*"
+        
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
+        "bjyoungblood/bjy-profiler": "dev-master",
+        "zendframework/zend-developer-tools" : "dev-master",
         "phploc/phploc": "*",
         "phpmd/phpmd": "dev-master",
         "sebastian/phpcpd": "2.0.*@dev",
