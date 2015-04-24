@@ -30,6 +30,6 @@ class TestControllerTest extends AbstractHttpControllerTestCase
      */
     public function testAuthHomeAction()
     {
-        $this->assertContains(4, array(1, 2, 3, 4));
+        $this->assertResponseStatusCode(200);
     }
 }
