@@ -27,7 +27,7 @@ return array(
             'application' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Index',
@@ -39,7 +39,7 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route'    => '[:controller[/:action]]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -47,6 +47,18 @@ return array(
                             'defaults' => array(
                             ),
                         ),
+                    ),
+                ),
+            ),
+            'findme' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/wsfindme',
+                    'constraints' => array(
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Find',
                     ),
                 ),
             ),
@@ -99,4 +111,18 @@ return array(
             ),
         ),
     ),
+    'doctrine' => array(
+        'driver' => array(
+            'application_entities' => array(
+                'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/Application/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Application\Entity' => 'application_entities'
+                )
+            )
+        )
+    )
 );
