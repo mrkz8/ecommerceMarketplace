@@ -7,10 +7,11 @@ Be FREE!!
 
 # Crear Base de datos
 Para crear la base de datos, deberás de correr estos sencillos pasos para poder
-crearla en el acto.
-    vagrant ssh
-    cd /www/www.escuela.local.com/
-    ./vendor/bin/doctrine-module orm:schema-tool:create
+crearla en el acto, no se te olvide copiar el archivo de configuración.
+
+        vagrant ssh
+        cd /www/www.escuela.local.com/
+        ./vendor/bin/doctrine-module orm:schema-tool:create
 
 # Desarrollo Local
 
