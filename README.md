@@ -5,6 +5,13 @@ Asi mismo esta plataforma es de software libre.
 
 Be FREE!!
 
+# Crear Base de datos
+Para crear la base de datos, deberás de correr estos sencillos pasos para poder
+crearla en el acto.
+    vagrant ssh
+    cd /www/www.escuela.local.com/
+    ./vendor/bin/doctrine-module orm:schema-tool:create
+
 # Desarrollo Local
 
 Este proyecto consta de una serie de scripts para levantar un servidor virtual con 
