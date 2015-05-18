@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 /** 
- * Datos del ciclo escolar
+ * Datos de la tienda 
  * @version 1.0
  * @ORM\Entity
  * @ORM\Table(name="tienda")
@@ -18,7 +18,7 @@ use DateTime;
 class Tienda
 {
     /**
-     * Id del cilo
+     * Id de la tienda
     * @ORM\Id
     * @ORM\GeneratedValue(strategy="AUTO")
     * @ORM\Column(type="integer")
