@@ -75,12 +75,6 @@ class Producto extends Ceo
      */
     private $active;
     /**
-     * Si esta activo o no la marca
-     * @var boolean
-     * @ORM\Column(columnDefinition="TINYINT DEFAULT 1 NOT NULL")
-     */
-    private $active;
-    /**
      * Regresa el 
      * @return integer
      */

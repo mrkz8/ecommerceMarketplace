@@ -6,6 +6,7 @@
  */
 namespace Application\Entity;
 
+use Application\Entity\Ceo;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
@@ -15,7 +16,7 @@ use DateTime;
  * @ORM\Entity
  * @ORM\Table(name="tienda")
  */
-class Tienda
+class Tienda extends Ceo
 {
     /**
      * Id de la tienda
@@ -194,14 +195,5 @@ class Tienda
     public function setPhoto($photo)
     {
         $this->photo = $photo;
-    }
-    /**
-     * Regresa una copia del objeto actual
-     * @return array
-     */
-    public function exchageArray()
-    {
-        $respuesta = get_object_vars($this);
-        return $respuesta;
     }
 }

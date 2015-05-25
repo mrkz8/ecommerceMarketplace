@@ -23,4 +23,13 @@ abstract class Ceo
         $respuesta = $string;
         return $respuesta;
     }
+    /**
+     * Regresa los valores del Objecto en un array
+     * @return Array
+     */
+    public function exchangeArray()
+    {
+        $respuesta = get_object_vars($this);
+        return $respuesta;
+    }
 }

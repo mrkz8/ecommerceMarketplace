@@ -6,6 +6,7 @@
  */
 namespace Application\Entity;
 
+use Application\Entity\Ceo;
 use Doctrine\ORM\Mapping as ORM;
 
 /** 
@@ -14,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="proveedor")
  */
-class Proveedor
+class Proveedor extends Ceo
 {
     /**
      * Id del cilo
@@ -149,14 +150,5 @@ class Proveedor
     public function setDireccion($direccion)
     {
         $this->direccion = $direccion;
-    }
-    /**
-     * Regresa una copia del objeto actual
-     * @return array
-     */
-    public function exchageArray()
-    {
-        $respuesta = get_object_vars($this);
-        return $respuesta;
     }
 }

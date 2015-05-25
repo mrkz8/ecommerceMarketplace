@@ -6,16 +6,17 @@
  */
 namespace Application\Entity;
 
+use Application\Entity\Ceo;
 use Doctrine\ORM\Mapping as ORM;
 
 /** 
  * Clase General para el manejo de Direcciones
  * @version 1.0
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="Application\Repository\DireccionesRepository")
- * @ORM\Table(name="direcciones")
+ * @ORM\Entity(repositoryClass="Application\Repository\DireccionRepository")
+ * @ORM\Table(name="direccion")
  */
-class Direccion
+class Direccion extends Ceo
 {
     /**
      * Id
