@@ -75,6 +75,13 @@ class Producto extends Ceo
      */
     private $active;
     /**
+     * Id de la tienda
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Tienda")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     */
+    private $tienda;
+    /**
      * Regresa el 
      * @return integer
      */
@@ -217,5 +224,21 @@ class Producto extends Ceo
     public function setModificacion($modificacion)
     {
         $this->modificacion = $modificacion;
+    }
+    /**
+     * Setea el objecto
+     * @return Object
+     */
+    public function getTienda()
+    {
+        return $this->tienda;
+    }
+    /**
+     * Setea el objecto
+     * @param Object $tienda
+     */
+    public function setTienda($tienda)
+    {
+        $this->tienda = $tienda;
     }
 }
