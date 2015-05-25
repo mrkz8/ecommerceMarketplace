@@ -197,6 +197,36 @@ class ecommerce {
     }
 
 }
+class stackmean{
+    class { 'nodejs':
+      version => 'v0.10.25',
+    }
+    package { 'express':
+      provider => npm
+    }
+    package { 'grunt':
+      provider => npm
+    }
+    package { 'grunt-cli':
+      provider => npm
+    }
+    package { 'grunt-contrib-less':
+      provider => npm
+    }
+    package { 'grunt-contrib-watch':
+      provider => npm
+    }
+    package { 'jit-grunt':
+      provider => npm
+    }	
+    package { 'bower':
+      provider => npm
+    }
+    package { 'less':
+      provider => npm
+    }
+}
 include pkgsextra
+include stackmean
 include ecommerce
 include xdebug

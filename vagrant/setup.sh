@@ -12,3 +12,4 @@ sudo puppet module install jfryman-nginx;
 sudo puppet module install thias-php
 sudo puppet module install example42-yum
 sudo puppet module install puppetlabs-mysql
+sudo puppet module install willdurand/nodejs

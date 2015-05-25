@@ -10,7 +10,7 @@ Para crear la base de datos, deberás de correr estos sencillos pasos para poder
 crearla en el acto, no se te olvide copiar el archivo de configuración.
 
         vagrant ssh
-        cd /www/www.escuela.local.com/
+        cd /www/www.ecommerce.local.com/
         ./vendor/bin/doctrine-module orm:schema-tool:create
 
 # Desarrollo Local
