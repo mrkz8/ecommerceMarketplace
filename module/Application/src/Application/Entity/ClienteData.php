@@ -51,7 +51,7 @@ class ClienteData extends Ceo
     /**
      * Apellido del usuario de usuario
      * @var string
-     * @ORM\Column(type="string", length=2, columnDefinition="ENUM('M', 'F')"))
+     * @ORM\Column(type="string", length=2)
      */
     private $sexo;
     /**
