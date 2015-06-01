@@ -19,10 +19,10 @@ class SegmentoProducto extends Ceo
 {
     /**
      * Id
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    * @ORM\Column(type="integer")
-    */
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     private $id;
     /**
      * Producto

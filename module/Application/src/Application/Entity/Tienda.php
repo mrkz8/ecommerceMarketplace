@@ -20,10 +20,10 @@ class Tienda extends Ceo
 {
     /**
      * Id de la tienda
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    * @ORM\Column(type="integer")
-    */
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     private $id;
     /**
      * Url de la foto de la tienda
