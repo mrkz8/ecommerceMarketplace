@@ -8,6 +8,7 @@ namespace Application\Entity;
 
 use Application\Entity\Ceo;
 use Doctrine\ORM\Mapping as ORM;
+
 /** 
  * Segmentación de una tienda
  * @version 1.0

@@ -6,7 +6,6 @@
  */
 namespace Application\Entity;
 
-
 /**
  * Clase Abstracta para el 
  *
