@@ -21,8 +21,7 @@
         "phploc/phploc": "*",
         "phpmd/phpmd": "dev-master",
         "sebastian/phpcpd": "2.0.*@dev",
-        "pdepend/pdepend" : "2.*",
-        "firephp/firephp-core" : "dev-master"
+        "pdepend/pdepend" : "2.*"
     },
     "autoload" : {
         "psr-0" : {
