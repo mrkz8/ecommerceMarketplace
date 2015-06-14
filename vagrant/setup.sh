@@ -1,3 +1,24 @@
+#sudo yum -y update;
+sudo yum -y groupinstall 'Development Tools';
+if ! rpm -qa | grep -qw curl; then
+    sudo yum install -y curl;
+fi
+
+if ! rpm -qa | grep -qw gcc; then
+    sudo yum install -y gcc gcc-c++ patch readline readline-devel curl zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel;
+fi
+if ! rpm -qa | grep -qw ruby; then
+    curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -
+    curl -L https://get.rvm.io | bash -s stable --ruby;
+    source /usr/local/rvm/scripts/rvm;
+    rvm install 2.2.1;
+    rvm use 2.2.1;
+    rvm rubygems latest;
+    gem update --system;
+    gem install bundler;
+    gem install json_pure;
+    gem install compass;
+fi
 if ! rpm -qa | grep -qw puppet; then
     sudo rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs;
     sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
@@ -9,7 +30,8 @@ fi
 sudo touch /etc/puppet/hiera.yaml;
 #istalo los modulos de los que depende mi site.pp
 sudo puppet module install jfryman-nginx;
-sudo puppet module install thias-php
-sudo puppet module install example42-yum
-sudo puppet module install puppetlabs-mysql
-sudo puppet module install willdurand/nodejs
+sudo puppet module install thias-php;
+sudo puppet module install example42-yum;
+sudo puppet module install puppetlabs-mysql;
+sudo puppet module install maestrodev-wget;
+sudo puppet module install willdurand/nodejs;

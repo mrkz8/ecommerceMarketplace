@@ -198,32 +198,75 @@ class ecommerce {
 
 }
 class stackmean{
+    require websrv
     class { 'nodejs':
-      version => 'v0.10.25',
+        version => 'v0.10.25',
+        make_install => true,
+        target_dir => '/bin',
     }
     package { 'express':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'grunt':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'grunt-contrib-concat':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'grunt-contrib-uglify':
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'grunt-cli':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'grunt-contrib-less':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'grunt-contrib-watch':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'jit-grunt':
-      provider => npm
-    }	
+        provider => npm,
+        require  => Class['nodejs']
+    }
     package { 'bower':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
     }
     package { 'less':
-      provider => npm
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'node-sass':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'jade':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'coffee-script':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'nodefront':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'grunt-contrib-sass':
+        provider => npm,
+        require  => Class['nodejs']
+    }
+    package { 'grunt-browser-sync':
+        provider => npm,
+        require  => Class['nodejs']
     }
 }
 include pkgsextra
