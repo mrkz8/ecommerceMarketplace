@@ -87,7 +87,6 @@ class appsrv {
         listen  => '127.0.0.1:9001',
         user    => 'nginx',
     }
-
     php::module { [ 'pecl-apcu',
         'pear',
         'pdo',
@@ -103,7 +102,6 @@ class appsrv {
         'soap']:
         notify  => Service['php-fpm'],
     }
-
     php::ini { '/etc/php.ini':
         short_open_tag              => 'On',
         asp_tags                    => 'Off',
@@ -152,7 +150,6 @@ class xdebug{
             #xdebug.force_error_reporting = E_ALL & ~E_DEPRECATED",
     }
 }
-
 class ecommerce {
     require websrv
     require appsrv
@@ -166,7 +163,6 @@ class ecommerce {
         index_files           => [ 'index.php' ],
         use_default_location => false,
     }
-
     nginx::resource::location { "www.ecommerce.local.com":
         ensure          => present,
         ssl              => true,
@@ -184,7 +180,6 @@ class ecommerce {
             fastcgi_param    => "APPLICATION_ENV 'development'"
         }
     }
-
     nginx::resource::location { "try":
         ensure          => present,
         ssl              => true,
@@ -195,7 +190,6 @@ class ecommerce {
             try_files => '$uri $uri/ /index.php$is_args$args'
         }
     }
-
 }
 class stackmean{
     require websrv
