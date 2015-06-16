@@ -32,6 +32,12 @@ class Producto extends Ceo
      */
     private $nombre;
     /**
+     * Descripción del producto
+     * @var string
+     * @ORM\Column(type="string", length=8000, nullable=false)
+     */
+    private $descripcion;
+    /**
      * Id de la marca
      * @var integer
      * @ORM\ManyToOne(targetEntity="Marca")
@@ -51,7 +57,13 @@ class Producto extends Ceo
      */
     private $precioMinimo;
     /**
-     * Precio de Adquisición
+     * Precio de Venta
+     * @var float
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $precioVenta;
+    /**
+     * Precio de Venta Publico
      * @var float
      * @ORM\Column(type="float", nullable=false)
      */
@@ -68,6 +80,12 @@ class Producto extends Ceo
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modificacion;
+    /**
+     * Precio de Envio
+     * @var float
+     * @ORM\Column(type="float", nullable=false)
+     */
+    private $costoEnvio;
     /**
      * Si esta activo o no
      * @var boolean
@@ -240,5 +258,65 @@ class Producto extends Ceo
     public function setTienda($tienda)
     {
         $this->tienda = $tienda;
+    }
+    /**
+     * Recupera el valor del atributo
+     * @return type
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+    /**
+     * REcupera el valor del atributo
+     * @return type
+     */
+    public function getPrecioVenta()
+    {
+        return $this->precioVenta;
+    }
+    /**
+     * Setea el valor del atributo
+     * @param string $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+    /**
+     * Setea el valor del atributo
+     * @param float $precioVenta
+     */
+    public function setPrecioVenta($precioVenta)
+    {
+        $this->precioVenta = $precioVenta;
+    }
+    /**
+     * Regresa el calculo del precio Real, no importando si hay precio de Venta
+     * @return float
+     */
+    public function calculatePrecio()
+    {
+        $precio = $this->getPrecioVentaPublico();
+        if (!is_null($this->getPrecioVenta())) {
+            $precio = ($this->getPrecioVentaPublico()>$this->getPrecioVenta()) ? $this->getPrecioVenta(): $this->getPrecioVentaPublico();
+        }
+        return $precio;
+    }
+    /**
+     * Regresa el costo de Envio
+     * @return type
+     */
+    public function getCostoEnvio()
+    {
+        return $this->costoEnvio;
+    }
+    /**
+     * Setea el costo de envio
+     * @param Float $costoEnvio
+     */
+    public function setCostoEnvio($costoEnvio)
+    {
+        $this->costoEnvio = $costoEnvio;
     }
 }
