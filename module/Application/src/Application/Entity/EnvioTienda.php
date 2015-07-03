@@ -43,7 +43,7 @@ class EnvioTienda extends Ceo
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $fechafinal;
-        /**
+    /**
      * Id de la tienda
      * @var integer
      * @ORM\ManyToOne(targetEntity="Tienda")
