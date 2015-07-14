@@ -1,7 +1,5 @@
-sudo yum -y update;
-sudo yum -y groupinstall 'Development Tools';
-if ! rpm -qa | grep -qw curl; then
-    sudo yum install -y curl;
+if ! rpm -qa | grep -qw gcc; then
+    sudo yum install -y gcc gcc-c++ patch readline readline-devel curl zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel;
 fi
 if ! rpm -qa | grep -qw ruby; then
     curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -
@@ -12,7 +10,6 @@ if ! rpm -qa | grep -qw ruby; then
     rvm rubygems latest;
     gem update --system;
     gem install bundler;
-
     gem install json_pure;
     gem install compass;
 fi
