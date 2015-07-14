@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|
-    config.vm.box = "chef/centos-6.6"
+    config.vm.box = "chef/centos-6.5-i386"
     config.vm.box_check_update = false
     config.vm.network "private_network", ip: "192.168.56.66"
     config.vm.synced_folder "./", "/www/www.ecommerce.local.com"
