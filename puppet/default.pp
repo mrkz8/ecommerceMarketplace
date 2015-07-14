@@ -126,7 +126,7 @@ class appsrv {
 }
 class xdebug{
     require appsrv
-    package { ['php-devel', 'gcc', 'gcc-c++','autoconf','automake'] :
+    package { ['php-devel'] :
         ensure  => present,
     }->
     exec { "install_xdebug":
