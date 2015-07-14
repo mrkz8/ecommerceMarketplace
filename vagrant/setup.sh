@@ -12,6 +12,7 @@ if ! rpm -qa | grep -qw ruby; then
     gem install bundler;
     gem install json_pure;
     gem install compass;
+    gem install sass;
 fi
 if ! rpm -qa | grep -qw puppet; then
     sudo rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs;
