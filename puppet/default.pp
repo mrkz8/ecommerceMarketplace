@@ -125,8 +125,8 @@ class appsrv {
     }
 }
 class xdebug{
-   require appsrv
-   package { ['php-devel'] :
+    require appsrv
+    package { ['php-devel', 'gcc', 'gcc-c++','autoconf','automake'] :
         ensure  => present,
     }->
     exec { "install_xdebug":
@@ -155,6 +155,7 @@ class ecommerce {
     require appsrv
     require mysqlSrv
     require createdb
+    require xdebug
     nginx::resource::vhost { 'www.ecommerce.local.com':
         www_root => '/www/www.ecommerce.local.com/public',
         ssl => true,
@@ -266,4 +267,3 @@ class stackmean{
 include pkgsextra
 include stackmean
 include ecommerce
-include xdebug
