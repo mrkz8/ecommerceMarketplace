@@ -5,6 +5,7 @@ $env = getenv('APPLICATION_ENV') ? : 'production';
 $modules = array(
     'DoctrineModule',
     'DoctrineORMModule',
+    'ZfcTwig',
     'Application'
 );
 if ($env == 'development') {

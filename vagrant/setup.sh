@@ -1,3 +1,4 @@
+sudo yum update -y;
 if ! rpm -qa | grep -qw gcc; then
     sudo yum install -y gcc gcc-c++ patch readline readline-devel curl zlib zlib-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel;
 fi
