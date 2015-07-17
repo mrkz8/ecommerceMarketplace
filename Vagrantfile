@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
         # Display the VirtualBox GUI when booting the machine
         vb.gui = false
         # Customize the amount of memory on the VM:
-        vb.memory = "384"
+        vb.memory = "400"
     end
     config.vm.provision :shell do |shell|
         shell.path = "vagrant/setup.sh"

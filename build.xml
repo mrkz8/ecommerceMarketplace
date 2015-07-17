@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="SIAE" default="build">
+<project name="MarketPlace" default="build">
     <target name="build" depends="prepare,lint,composerUpdate,composer,prepareHome,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit,compass"/>
     <target name="build-parallel" depends="prepare, lint, tools-parallel, phpunit"/>
     <target name="tools-parallel" description="Run tools in parallel">
@@ -46,6 +46,8 @@
     <target name="compass" description="Crea el css">
         <exec executable="compass">
             <arg value="compile"/>
+            <arg value="-e" />
+            <arg value="production" />
         </exec>
     </target>
     <target name="composerUpdate" description="Update dependencies with Composer">
