@@ -3,7 +3,9 @@ $dbParams = array(
     'database'  => 'marketplace',
     'username'  => 'root',
     'password'  => 'password',
-    'hostname'  => '192.168.56.66'
+    'hostname'  => '192.168.56.66',
+    // buffer_results - only for mysqli buffered queries, skip for others
+    'options' => array('buffer_results' => true)
 );
 return array(
     'service_manager' => array(
