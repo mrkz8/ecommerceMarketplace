@@ -1,5 +1,4 @@
 {% spaceless %}
-
 {{ docType() }}
 <html lang="en">
     <head>
@@ -10,10 +9,7 @@
         {% block script %}{% endblock script %}
     </head>
     <body>
-        
-        
         {% block content %}{{ content|raw }}{% endblock content %}
-        
         {% block inline %}{% endblock inline %}
     </body>
 </html>
