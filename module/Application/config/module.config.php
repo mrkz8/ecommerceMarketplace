@@ -95,21 +95,14 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
-            'header'                  => __DIR__ . '/../view/header/header.phtml',
-            'headerTop'               => __DIR__ . '/../view/header/headerTop.phtml',
-            'headerMiddle'            => __DIR__ . '/../view/header/headerMiddle.phtml',
-            'headerBottom'            => __DIR__ . '/../view/header/headerBottom.phtml',
+            'layout/layout'           => __DIR__ . '/../view/layout/layout.twig',
+            'application/index/index' => __DIR__ . '/../view/application/index/index.twig',
+            'error/404'               => __DIR__ . '/../view/error/404.twig',
+            'error/index'             => __DIR__ . '/../view/error/index.twig'
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-        'strategies' => array(
-            'ViewJsonStrategy',
-        ),
+        )
     ),
     // Placeholder for console routes
     'console' => array(
@@ -131,5 +124,36 @@ return array(
                 )
             )
         )
+    ),
+    'zfctwig' => array(
+        /**
+         * Service manager alias of the loader to use with ZfcTwig. By default, it uses
+         * the included ZfcTwigLoaderChain which includes a copy of ZF2's TemplateMap and
+         * TemplatePathStack.
+         */
+        'environment_loader' => 'ZfcTwigLoaderChain',
+        
+        /**
+         * Optional class name override for instantiating the Twig Environment in the factory.
+         */
+        'environment_class' => 'Twig_Environment',
+        /**
+         * Service manager alias of any additional loaders to register with the chain. The default
+         * has the TemplateMap and TemplatePathStack registered. This setting only has an effect
+         * if the `environment_loader` key above is set to ZfcTwigLoaderChain.
+         */
+        'loader_chain' => array(
+            'ZfcTwigLoaderTemplateMap',
+            'ZfcTwigLoaderTemplatePathStack'
+        ),
+        /**
+         * Service manager alias or fully qualified domain name of extensions. ZfcTwigExtension
+         * is required for this module to function!
+         */
+        'extensions' => array(
+            'zfctwig' => 'ZfcTwigExtension'
+        ),
+        'suffix' => 'twig',
+        'disable_zf_model' => true,
     )
 );
