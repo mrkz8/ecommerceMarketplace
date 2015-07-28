@@ -1,16 +1,24 @@
 {% spaceless %}
-{{ docType() }}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>
-            {% block title %}ZF2 {{ translate('Skeleton Application') }}{% endblock title %}
-        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Ricardo Ruiz Cruz">
+        <title>{% block title %}Home | E-Shopper{% endblock title %}</title>
         {% block script %}{% endblock script %}
+        <link href="{{ basePath('css/style.css') }}" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="{{ basePath('js/html5shiv.js') }}"></script>
+        <script src="{{ basePath('js/respond.min.js') }}"></script>
+        <![endif]-->
+        <script src="{{ basePath('js/compile.js') }}"></script>
     </head>
     <body>
-        {% block content %}{{ content|raw }}{% endblock content %}
-        {% block inline %}{% endblock inline %}
+        {% block content %}{{ content }}{% endblock content %}
+        {% include 'footer/footer.twig' %}
+        <script src="{{ basePath('js/main.js') }}"></script>
     </body>
 </html>
 {% endspaceless %}
