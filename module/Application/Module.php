@@ -14,18 +14,45 @@ use Zend\Mvc\MvcEvent;
 
 class Module
 {
+    /**
+     * Evento al cargarse la aplicacion
+     * @param MvcEvent $e
+     */
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-    }
+        $navigation = array(
+            'home' => array(
+               'name' => 'Home',
+               'route' => 'home',
+            ),
+            'profile' => array(
+               'name' => 'Profile',
+               'route' => 'myroute',
+               'active' => true
+            ),
+         );
 
+//        $view = $e->getApplication('application')->getMvcEvent()->getViewModel();
+//
+//        $view->navigation = $navigation;
+        $ZfcTwigRenderer = $e->getApplication()->getServiceManager()->get('ZfcTwigRenderer');
+        $ZfcTwigRenderer->navigation = $navigation;
+    }
+    /**
+     * Obtiene la configuracion
+     * @return array
+     */
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
     }
-
+    /**
+     * Autocarga de Config
+     * @return array
+     */
     public function getAutoloaderConfig()
     {
         return array(
@@ -34,6 +61,17 @@ class Module
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+    /**
+     * Return Factories
+     * @return array
+     */
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+            )
         );
     }
 }

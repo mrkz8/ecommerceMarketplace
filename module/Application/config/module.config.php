@@ -134,6 +134,13 @@ return array(
         'environment_loader' => 'ZfcTwigLoaderChain',
         
         /**
+         * Options that are passed directly to the Twig_Environment.
+         */
+        'environment_options' => array(
+            'debug' => true
+            
+        ),
+        /**
          * Optional class name override for instantiating the Twig Environment in the factory.
          */
         'environment_class' => 'Twig_Environment',
@@ -155,5 +162,12 @@ return array(
         ),
         'suffix' => 'twig',
         'disable_zf_model' => true,
-    )
+    ),
+    'navigation' => array('default' =>array(
+        array('label' => 'Home', 'route' => 'home', 'pages' => array(
+                array('label' => 'Profile', 'route' => 'myroute'),
+            ),
+        ),
+      ),
+    ),
 );

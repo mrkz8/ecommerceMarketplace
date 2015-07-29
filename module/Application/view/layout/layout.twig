@@ -16,6 +16,7 @@
         <script src="{{ basePath('js/compile.js') }}"></script>
     </head>
     <body>
+        {% include 'header/header' %}
         {% block content %}{{ content }}{% endblock content %}
         {% include 'footer/footer.twig' %}
         <script src="{{ basePath('js/main.js') }}"></script>
