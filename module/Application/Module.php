@@ -35,11 +35,8 @@ class Module
             ),
          );
 
-//        $view = $e->getApplication('application')->getMvcEvent()->getViewModel();
-//
-//        $view->navigation = $navigation;
         $ZfcTwigRenderer = $e->getApplication()->getServiceManager()->get('ZfcTwigRenderer');
-        $ZfcTwigRenderer->navigation = $navigation;
+        $ZfcTwigRenderer->navigation = "";
     }
     /**
      * Obtiene la configuracion

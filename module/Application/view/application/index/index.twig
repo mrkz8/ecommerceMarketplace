@@ -2,14 +2,5 @@
 {% block content %}
     <h1>Hola</h1>
 {% spaceless %}
-    {% for item in navigation %}
-
-    <li {% if item.active %} class="active" {% endif %}>
-       <a href="{{ url(item.route) }}">
-       {{ item.name }}
-       </a>
-    </li>
-
-   {% endfor %}
 {% endspaceless %}
 {% endblock content %}

@@ -162,12 +162,5 @@ return array(
         ),
         'suffix' => 'twig',
         'disable_zf_model' => true,
-    ),
-    'navigation' => array('default' =>array(
-        array('label' => 'Home', 'route' => 'home', 'pages' => array(
-                array('label' => 'Profile', 'route' => 'myroute'),
-            ),
-        ),
-      ),
-    ),
+    )
 );
