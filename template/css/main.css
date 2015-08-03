@@ -2,6 +2,7 @@
 /*************************
 *******Typography******
 **************************/
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
@@ -899,7 +900,6 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
 }
 
 .single-products:hover .product-overlay {
@@ -1503,19 +1503,6 @@ h2.title {
   padding-left: 0;
 }
 
-
-.or{
-	background: #FE980F;
-	border-radius: 40px;
-	color: #FFFFFF;
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	height: 50px;
-	line-height: 50px;
-	margin-top: 75px;
-	text-align: center;
-	width: 50px;
-}
 
 
 /*************************
