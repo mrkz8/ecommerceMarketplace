@@ -1,4 +1,7 @@
 <?php
+
+
+use Zend\Mvc;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Mvc\Service\ServiceManagerConfig;
 /**
@@ -17,6 +20,9 @@ class Bootstrap
     protected static $smConfig;
     protected static $listeners;
     
+    /**
+     * Inicia el bootstrap
+     */
     public static function init()
     {
         //FIXME dejar esto configurable
@@ -26,16 +32,31 @@ class Bootstrap
         self::$listeners = isset($configuration['listeners']) ? $configuration['listeners'] : array();
         
     }
-    public static function getConfig(){
+    /**
+     * Obtiene la configuracion
+     * @return array
+     */
+    public static function getConfig()
+    {
         return self::$config;
     }
-    public static function getSm(){
+    /**
+     * Regresa el Service MAnager
+     * @return ServiceManager
+     */
+    public static function getSm()
+    {
         if (self::$sm === null){
             self::$sm = self::configSm();
         }
         return self::$sm;
-    }   
-    private static function configSm(){
+    }
+    /**
+     * REgresa la configuracion del SM
+     * @return ServiceManager
+     */
+    private static function configSm()
+    {
         $serviceManager = new ServiceManager(new ServiceManagerConfig(self::$smConfig));
         $serviceManager->setService('ApplicationConfig', self::$config);
         $serviceManager->get('ModuleManager')->loadModules();

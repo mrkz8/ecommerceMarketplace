@@ -15,6 +15,7 @@ use DateTime;
  * @version 1.0
  * @ORM\Entity
  * @ORM\Table(name="categoria")
+ * @ORM\Entity(repositoryClass="Application\Repository\CategoriaRepository")
  */
 class Categoria extends Ceo
 {
@@ -46,7 +47,7 @@ class Categoria extends Ceo
     /**
      * @var integer
      * @ORM\ManyToOne(targetEntity="Categoria")
-     * @ORM\Column(columnDefinition="INT DEFAULT 1 NOT NULL")
+     * @ORM\Column(columnDefinition="INT")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
      */
     private $padre;

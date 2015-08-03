@@ -68,6 +68,9 @@ class Module
     {
         return array(
             'factories' => array(
+                'DataCategoria' => function (){
+                    
+                }
             )
         );
     }

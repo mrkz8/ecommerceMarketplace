@@ -10,12 +10,38 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-//use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    /**
+     * Variable para obtener el entitiManager
+     * @var EntityManager
+     */
+    protected $em;
+    /**
+     * Regresa el entityManager para poder hacer pruebas unitarias
+     * @return EntityManager
+     */
+    public function getEntityManager()
+    {
+        if (null === $this->em) {
+            $this->em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        }
+        return $this->em;
+    }
+    /**
+     * 
+     * @return ViewModel
+     */
     public function indexAction()
     {
-        return array('navicat'=>'555');
+        $categoriaEntity    = $this->getEntityManager()->getRepository('Application\Entity\Categoria');
+        $categoria          = $categoriaEntity->getCategoria();
+        return array(
+            'test'=>'aaa',
+            'menu'=>array(
+                
+            )
+        );
     }
 }
