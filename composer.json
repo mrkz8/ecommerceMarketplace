@@ -14,11 +14,11 @@
         "doctrine/common" : "2.*",
         "doctrine/doctrine-orm-module" : "*",
         "zendframework/zendservice-recaptcha" : "*",
-        "twig/twig": "*",
+        "twig/twig": "1.19",
         "zf-commons/zfc-twig": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit" : "4.*",
+        "phpunit/phpunit" : "4.7.7",
         "bjyoungblood/bjy-profiler": "dev-master",
         "zendframework/zend-developer-tools" : "dev-master",
         "phploc/phploc": "*",

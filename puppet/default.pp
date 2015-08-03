@@ -132,13 +132,13 @@ class xdebug{
     exec { "install_xdebug":
        path => "/usr/bin/",
        command => "sudo pecl install Xdebug",
-       creates => "/usr/lib/php/modules/xdebug.so"
+       creates => "/usr/lib64/php/modules/xdebug.so"
     }->
     file { "/etc/php.d/xdebug.ini":
         ensure  => file,
         notify  => Service['php-fpm'],
         content => "[xdebug]
-            zend_extension=\"/usr/lib/php/modules/xdebug.so\"
+            zend_extension=\"/usr/lib64/php/modules/xdebug.so\"
             xdebug.remote_enable        = 1
             xdebug.remote_connect_back  = 1
             xdebug.collect_params       = 4
