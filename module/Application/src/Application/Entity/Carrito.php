@@ -51,27 +51,50 @@ class Carrito extends Ceo
      * @ORM\Column(columnDefinition="TINYINT DEFAULT 1 NOT NULL")
      */
     private $active;
+    /**
+     * Obtiene el id
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
-    
+    /**
+     * Regresa el integer del cliente
+     * @return string
+     */
     public function getCliente()
     {
         return $this->cliente;
     }
+    /**
+     * Regresa la fecha
+     * @return DateTime
+     */
     public function getFecha()
     {
         return $this->fecha;
     }
+    /**
+     * Regresa si el objeto está activo o no
+     * @return boolean
+     */
     public function getActive()
     {
         return $this->active;
     }
+    /**
+     * Setea el id 
+     * @param integer $id
+     */
     public function setId($id)
     {
         $this->id = $id;
     }
+    /**
+     * Setea el objecto del cliente
+     * @param Object $cliente
+     */
     public function setCliente($cliente)
     {
         $this->cliente = $cliente;
@@ -84,6 +107,10 @@ class Carrito extends Ceo
     {
         $this->fecha = $fecha;
     }
+    /**
+     * Setea si el objeto esta activo o no
+     * @param boolean $active
+     */
     public function setActive($active)
     {
         $this->active = $active;

@@ -30,18 +30,33 @@ class IndexController extends AbstractActionController
         return $this->em;
     }
     /**
+     * Regresa 
+     * @return array
+     */
+    private function getCategoria()
+    {
+        $categoriaEntity    = $this->getEntityManager()->getRepository('Application\Entity\Categoria');
+        $categoria          = $categoriaEntity->getCategoria();
+        return $categoria;
+    }
+    private function getConfigurationKey($key)
+    {
+        $respuesta = array();
+        $config = $this->serviceLocator->get('configuration');
+        if(key_exists($key, $config)) {
+            $respuesta = $config[$key];
+        }
+        return $respuesta;
+    }
+    /**
      * 
      * @return ViewModel
      */
     public function indexAction()
     {
-        $categoriaEntity    = $this->getEntityManager()->getRepository('Application\Entity\Categoria');
-        $categoria          = $categoriaEntity->getCategoria();
         return array(
-            'test'=>'aaa',
-            'menu'=>array(
-                
-            )
+            'menu'      => $this->getCategoria(),
+            "title"     => 'Home | Ecommerce'
         );
     }
 }
