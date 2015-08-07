@@ -19,7 +19,7 @@ abstract class Ceo
      */
     public function convertCeo($string)
     {
-        $respuesta = $string;
+        $respuesta = parse_url($string);
         return $respuesta;
     }
     /**
