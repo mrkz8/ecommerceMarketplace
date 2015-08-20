@@ -7,7 +7,7 @@
 namespace Application\Entity;
 
 /**
- * Clase Abstracta para el 
+ * Clase Abstracta para el Ceo
  *
  * @author rikardo
  */
