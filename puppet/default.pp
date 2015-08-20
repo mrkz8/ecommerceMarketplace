@@ -207,23 +207,7 @@ class stackmean{
         provider => npm,
         require  => Class['nodejs']
     }
-    package { 'grunt-contrib-concat':
-        provider => npm,
-        require  => Class['nodejs']
-    }
-    package { 'grunt-contrib-uglify':
-        provider => npm,
-        require  => Class['nodejs']
-    }
     package { 'grunt-cli':
-        provider => npm,
-        require  => Class['nodejs']
-    }
-    package { 'grunt-contrib-less':
-        provider => npm,
-        require  => Class['nodejs']
-    }
-    package { 'grunt-contrib-watch':
         provider => npm,
         require  => Class['nodejs']
     }
@@ -239,10 +223,6 @@ class stackmean{
         provider => npm,
         require  => Class['nodejs']
     }
-    package { 'node-sass':
-        provider => npm,
-        require  => Class['nodejs']
-    }
     package { 'jade':
         provider => npm,
         require  => Class['nodejs']
@@ -252,14 +232,6 @@ class stackmean{
         require  => Class['nodejs']
     }
     package { 'nodefront':
-        provider => npm,
-        require  => Class['nodejs']
-    }
-    package { 'grunt-contrib-sass':
-        provider => npm,
-        require  => Class['nodejs']
-    }
-    package { 'grunt-browser-sync':
         provider => npm,
         require  => Class['nodejs']
     }
