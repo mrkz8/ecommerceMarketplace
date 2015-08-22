@@ -53,6 +53,10 @@ class IndexController extends AbstractActionController
         $categoria          = $categoriaEntity->getCategoria();
         return $categoria;
     }
+    /**
+     * Obtiene los landing habiitados
+     * @return array
+     */
     private function getMenu()
     {
         $menuEntity     = $this->getEntityManager()->getRepository('Application\Entity\Menu');
