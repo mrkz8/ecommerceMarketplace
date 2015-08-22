@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @version 1.0
  * @ORM\Entity
  * @ORM\Table(name="menu")
+ * @ORM\Entity(repositoryClass="Application\Repository\MenuRepository")
  */
 class Menu extends Ceo
 {

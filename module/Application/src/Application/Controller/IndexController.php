@@ -30,6 +30,20 @@ class IndexController extends AbstractActionController
         return $this->em;
     }
     /**
+     * Obtiene la configuracion de un indice en especifico
+     * @param string $key
+     * @return array
+     */
+    private function getConfigurationKey($key)
+    {
+        $respuesta = array();
+        $config     = $this->serviceLocator->get('configuration');
+        if(key_exists($key, $config)) {
+            $respuesta = $config[$key];
+        }
+        return $respuesta;
+    }
+    /**
      * Regresa 
      * @return array
      */
@@ -39,14 +53,11 @@ class IndexController extends AbstractActionController
         $categoria          = $categoriaEntity->getCategoria();
         return $categoria;
     }
-    private function getConfigurationKey($key)
+    private function getMenu()
     {
-        $respuesta = array();
-        $config = $this->serviceLocator->get('configuration');
-        if(key_exists($key, $config)) {
-            $respuesta = $config[$key];
-        }
-        return $respuesta;
+        $menuEntity     = $this->getEntityManager()->getRepository('Application\Entity\Menu');
+        $menu           = $menuEntity->getMenu();
+        return $menu;
     }
     /**
      * 
@@ -54,9 +65,11 @@ class IndexController extends AbstractActionController
      */
     public function indexAction()
     {
+        $site = $this->getConfigurationKey('siteConfig');
         return array(
-            'menu'      => $this->getCategoria(),
-            "title"     => 'Home | Ecommerce'
+            'menu'          => $this->getCategoria(),
+            'landing'       => $this->getMenu(),
+            "title"         => $site['title']
         );
     }
 }
