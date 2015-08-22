@@ -115,13 +115,13 @@ class appsrv {
         ensure => "file",
         owner  => "nginx",
         group  => "nginx",
-        mode   => 664
+        mode   => 777
     }
     file { '/var/log/php-fpm/error.log':
         ensure => "file",
         owner  => "nginx",
         group  => "nginx",
-        mode   => 664,
+        mode   => 777,
     }
 }
 class xdebug{

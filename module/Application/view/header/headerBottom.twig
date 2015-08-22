@@ -16,19 +16,16 @@
                             <ul role="menu" class="sub-menu">
                                 {% if menu is iterable %}
                                 {% for menuItem in menu %}
-                                    <li><a href="{{ basePath(menuItem.getCeo(menuItem.getNombre)) }}">{{ menuItem.getNombre | lower |capitalize }}</a></li>
+                                    <li><a href="{{ basePath(menuItem.getCeo) }}">{{ menuItem.getNombre | lower |capitalize }}</a></li>
                                 {% endfor %}
                                 {% endif %}
                             </ul>
-                        </li> 
-                        <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="blog.html">Blog List</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                            </ul>
                         </li>
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        {% if landing is iterable %}
+                        {% for land in landing %}
+                        <li><a href="{{ basePath(land.getCeo) }}">{{ land.getNombre }}</a></li>
+                        {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>
