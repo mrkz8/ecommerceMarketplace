@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MarketPlace" default="build">
-    <target name="build" depends="prepare,lint,composerUpdate,composer,prepareHome,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit,compass"/>
+    <target name="build" depends="prepare, lint, composer, prepareHome, phploc, pdepend, phpmd-ci, phpcs-ci,phpcpd,phpdox,phpunit,compass, composerProduction"/>
     <target name="build-parallel" depends="prepare, lint, tools-parallel, phpunit"/>
     <target name="tools-parallel" description="Run tools in parallel">
         <parallel threadCount="2">
@@ -16,8 +16,8 @@
     </target>
     <!-- borra carpetas -->
     <target name="clean" description="Cleanup build artifacts">
-        <delete dir="${basedir}/database"/>  
-        <delete dir="${basedir}/vendor"/>  
+        <delete dir="${basedir}/node_modules"/>
+        <delete dir="${basedir}/vendor"/>
         <delete dir="${basedir}/build/api"/>
         <delete dir="${basedir}/build/coverage"/>
         <delete dir="${basedir}/build/logs"/>
@@ -25,7 +25,7 @@
         <delete dir="${basedir}/build/phpdox"/>
     </target>
     <target name="prepare" depends="clean" description="Prepare for build">
-        <mkdir dir="${basedir}/database"/>
+        <mkdir dir="${basedir}/node_modules"/>
         <mkdir dir="${basedir}/vendor"/>
         <mkdir dir="${basedir}/build/api"/>
         <mkdir dir="${basedir}/build/coverage"/>
@@ -56,10 +56,19 @@
             <arg value="self-update"/>
         </exec>
     </target>
+    <target name="composerProduction" description="Optimization dependencies with Composer">
+        <exec executable="php">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="update" />
+            <arg value="--no-dev" />
+            <arg value="-o" />
+        </exec>
+    </target>
     <target name="composer" description="Install dependencies with Composer">
         <exec executable="php">
             <arg value="${basedir}/composer.phar"/>
-            <arg value="update"/>
+            <arg value="update" />
+            <arg value="-o" />
         </exec>
     </target>
     <target name="prepareHome" description="Copiar archivos para instlar el zft">

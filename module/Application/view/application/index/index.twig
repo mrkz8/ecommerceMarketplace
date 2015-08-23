@@ -1,5 +1,8 @@
 {% extends 'layout/layout.twig' %}
 {% block content %}
 {% spaceless %}
+{% for seccion in template %}
+    {% include seccion %}
+{% endfor %}
 {% endspaceless %}
 {% endblock content %}

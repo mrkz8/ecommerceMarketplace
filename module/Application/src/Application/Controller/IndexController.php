@@ -73,7 +73,10 @@ class IndexController extends AbstractActionController
         return array(
             'menu'          => $this->getCategoria(),
             'landing'       => $this->getMenu(),
-            "title"         => $site['title']
+            "title"         => $site['title'],
+            'template'      => array(
+                'slider/slider'
+            )
         );
     }
 }

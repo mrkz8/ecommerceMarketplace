@@ -23,23 +23,9 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        $navigation = array(
-            'home' => array(
-               'name' => 'Home',
-               'route' => 'home',
-            ),
-            'profile' => array(
-               'name' => 'Profile',
-               'route' => 'myroute',
-               'active' => true
-            ),
-         );
-
-        $ZfcTwigRenderer = $e->getApplication()->getServiceManager()->get('ZfcTwigRenderer');
-        $ZfcTwigRenderer->navigation = "";
     }
     /**
-     * Obtiene la configuracion
+     * Regresa la configuracion
      * @return array
      */
     public function getConfig()

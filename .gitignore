@@ -13,3 +13,4 @@ vendor/*
 .vagrant/*
 .sass-cache/*
 .sass-cache
+composer.phar
