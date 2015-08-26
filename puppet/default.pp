@@ -207,11 +207,11 @@ class stackmean{
         provider => npm,
         require  => Class['nodejs']
     }
-    package { 'grunt-cli':
+    package { 'gulp':
         provider => npm,
         require  => Class['nodejs']
     }
-    package { 'jit-grunt':
+    package { 'grunt-cli':
         provider => npm,
         require  => Class['nodejs']
     }

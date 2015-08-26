@@ -7,19 +7,12 @@
         <meta name="description" content="">
         <meta name="author" content="Ricardo Ruiz Cruz">
         <title>{{ title }}</title>
-        {% block script %}{% endblock script %}
-        <link href="{{ basePath('css/style.css') }}" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="{{ basePath('js/html5shiv.js') }}"></script>
-        <script src="{{ basePath('js/respond.min.js') }}"></script>
-        <![endif]-->
-        <script src="{{ basePath('js/compile.js') }}"></script>
+        {% include 'head/head' %}
     </head>
     <body>
         {% include 'header/header' %}
         {% block content %}{{ content }}{% endblock content %}
         {% include 'footer/footer.twig' %}
-        <script src="{{ basePath('js/main.js') }}"></script>
     </body>
 </html>
 {% endspaceless %}

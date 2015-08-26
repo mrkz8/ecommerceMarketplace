@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MarketPlace" default="build">
-    <target name="build" depends="prepare, lint, composer, prepareHome, phploc, pdepend, phpmd-ci, phpcs-ci,phpcpd,phpdox,phpunit,compass, composerProduction"/>
+    <target name="build" depends="prepare, lint, composer, prepareHome, phploc, pdepend, phpmd-ci, phpcs-ci,phpcpd,phpdox,phpunit,compass, composerProduction, gulp"/>
     <target name="build-parallel" depends="prepare, lint, tools-parallel, phpunit"/>
     <target name="tools-parallel" description="Run tools in parallel">
         <parallel threadCount="2">
@@ -16,6 +16,7 @@
     </target>
     <!-- borra carpetas -->
     <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/bower_components"/>
         <delete dir="${basedir}/node_modules"/>
         <delete dir="${basedir}/vendor"/>
         <delete dir="${basedir}/build/api"/>
@@ -25,6 +26,7 @@
         <delete dir="${basedir}/build/phpdox"/>
     </target>
     <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/bower_components"/>
         <mkdir dir="${basedir}/node_modules"/>
         <mkdir dir="${basedir}/vendor"/>
         <mkdir dir="${basedir}/build/api"/>
@@ -143,5 +145,36 @@
         <exec executable="${basedir}/vendor/phpunit/phpunit/phpunit" failonerror="true">
             <arg value="-c${basedir}/build/phpunit.xml"/>
         </exec>
+    </target>
+    <target name="npmgulp"  description="Dependencias">
+        <exec executable="npm" >
+            <arg value="install" />
+            <arg value="--save-dev" />
+            <arg value="gulp" />
+        </exec>
+    </target>
+    <target name="npmgulpUtil"  description="Dependencias">
+        <exec executable="npm" >
+            <arg value="install" />
+            <arg value="--save-dev" />
+            <arg value="gulp-util" />
+        </exec>
+    </target>
+    <target name="npmgulpUglify"  description="Dependencias">
+        <exec executable="npm" >
+            <arg value="install" />
+            <arg value="--save-dev" />
+            <arg value="gulp-uglify" />
+        </exec>
+    </target>
+    <target name="npmgulpConcat"  description="Dependencias">
+        <exec executable="npm" >
+            <arg value="install" />
+            <arg value="--save-dev" />
+            <arg value="gulp-concat" />
+        </exec>
+    </target>
+    <target name="gulp" depends="npmgulp, npmgulpUtil, npmgulpUglify, npmgulpConcat" description="Crea el js">
+        <exec executable="gulp" />
     </target>
 </project>
